@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+    <data class="ClockBinding">
+        <variable
+            name="myClockModel"
+            type="com.example.android.databinding.model.ClockModel"/>
+        <variable
+            name="myClockHandel"
+            type="com.example.android.databinding.modelview.HandleClockActivity"/>
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:textSize="38sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_margin="10dp"
+            android:layout_height="wrap_content"
+            android:text="@{myClockModel.time}"/>
+
+        <Button
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:textColor="#FFFFFF"
+            android:background="#0000ff"
+            android:text="@{myClockModel.stop ? @string/txt_start : @string/txt_stop}"
+            android:onClick="@{() -> myClockHandel.onClickStart(myClockModel)}"/>
+
+        <Button
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Reset"
+            android:textColor="#FFFFFF"
+            android:background="#0000ff"
+            android:onClick="@{() -> myClockHandel.onClickReset(myClockModel)}"/>
+
+    </LinearLayout>
+</layout>
